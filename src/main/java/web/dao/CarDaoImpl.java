@@ -16,6 +16,7 @@ public class CarDaoImpl implements CarDao {
         list.add(new Car(5, "Nissan", 55));
     }
 
+
     @Override
     public List<Car> getCars() {
         return List.copyOf(list);

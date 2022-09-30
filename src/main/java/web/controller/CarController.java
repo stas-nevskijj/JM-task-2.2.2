@@ -18,13 +18,16 @@ public class CarController {
     CarDao carDao = new CarDaoImpl();
 
     @GetMapping
-    public String getCars(ModelMap model, @RequestParam(value = "count", required = false) Integer count) {
-        List<Car> list = null;
-        if (count != null) {
-            list = carDao.getCars(count);
-        } else {
-            list = carDao.getCars();
-        }
+    public String getCars(ModelMap model, @RequestParam(value = "count", defaultValue = "5") Integer count) {
+//        List<Car> list = null;
+//        if (count != null) {
+//            list = carDao.getCars(count);
+//        } else {
+//            list = carDao.getCars();
+//        }
+//        model.addAttribute("cars", list);
+
+        List<Car> list = carDao.getCars(count);
         model.addAttribute("cars", list);
 
         return "car/cars";
